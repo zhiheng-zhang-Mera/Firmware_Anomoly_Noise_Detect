@@ -1,20 +1,26 @@
 #  AI-Powered Anomaly Detector on ESP32
 #  基于 ESP32 的边缘 AI 声音与震动异常检测器
 
-![Project Banner](https://img.shields.io/badge/Status-Active-success) ![Platform](https://img.shields.io/badge/Platform-ESP32-blue) ![Sensor](https://img.shields.io/badge/Sensor-INMP441-orange) ![ML](https://img.shields.io/badge/ML-TinyML-red)
-
 > A predictive maintenance device running entirely on the edge. It uses Machine Learning (Random Forest) and DSP to detect mechanical anomalies (like fan failure or abnormal vibrations) in real-time.
 >
 > 一款完全在边缘端运行的预测性维护设备。它结合了机器学习（随机森林）与数字信号处理（DSP），能够实时检测机械故障（如风扇停转或异常震动）。
 
 ---
 
-## 📺 Demo Video / 演示视频
+## Demo Video / 演示视频
 
 <div align="center">
-  <video src="Demo-Error-Old.mp4" width="100%" controls></video>
-   <video src="Welded-Version-Demo-Error.mp4" width="100%" controls></video>
+  <video width="100%" controls>
+    <source src="Demo-Error-Old.mp4" type="video/mp4">
+  </video>
+  <em>Test Demo on bread board</em>
+  <em>在面包板上的运行演示</em>
+  <video width="100%" controls>
+    <source src="Welded-Version-Demo-Error.mp4" type="video/mp4">
+  </video>
   <br>
+  <em>Test Demo on welded board</em>
+  <em>焊接后在万用板上的运行演示</em>
   <em>Real-time detection: Strobe Blue Light = Anomaly Detected.</em>
   <br>
   <em>实时检测演示：闪烁蓝灯报警=检测到异常。</em>
@@ -22,27 +28,27 @@
 
 ---
 
-## ✨ Key Features / 核心功能
+## Key Features / 核心功能
 
-1.  **🧠 TinyML on Edge / 边缘机器学习**:
+1.  **TinyML on Edge / 边缘机器学习**:
     * Uses a `Random Forest` model trained in Python and deployed via `emlearn`.
     * 使用 Python 训练的随机森林模型，通过 `emlearn` 部署在单片机上。
 
-2.  **🛡️ Self-Calibration / 开机自适应校准**:
+2.  **Self-Calibration / 开机自适应校准**:
     * Automatically learns the ambient noise floor (Low/High frequency energy) during the first few seconds of boot.
     * 开机后一段时间自动学习环境底噪（低频/高频能量），适应不同工作环境。
 
-3.  **🔊 Software Gain Amplifier / 软件信号增益**:
+3.  **Software Gain Amplifier / 软件信号增益**:
     * Built-in digital gain to compensate for hardware resistance losses on perfboards.
     * 内置数字增益，完美补偿万用板焊接带来的信号衰减。
 
-4.  **📉 Sliding Window Filter / 滑动窗口滤波**:
+4.  **Sliding Window Filter / 滑动窗口滤波**:
     * Rejects false positives using a 6-frame history buffer. Only triggers alarm when anomaly density is high.
     * 使用 6 帧历史缓冲区过滤误报，只有当异常密度达到阈值时才触发报警。
 
 ---
 
-## 🛠️ Hardware Setup / 硬件清单
+## Hardware Setup / 硬件清单
 
 | Component (元件) | Description (描述) | Quantity (数量) |
 | :--- | :--- | :--- |
@@ -71,7 +77,7 @@
 
 ---
 
-## 🧩 Software Architecture / 软件架构
+## Software Architecture / 软件架构
 
 ### 1. The Pipeline (处理流程)
 ```mermaid
@@ -100,7 +106,7 @@ The system does not use raw audio. It extracts 3 key features:
 
 ---
 
-## 📺 Demo Video / 演示视频
+## Demo Video / 演示视频
 
 <div align="center">
   <video src="./Demo-Error-Old.mp4" width="100%" controls></video>
@@ -113,7 +119,7 @@ The system does not use raw audio. It extracts 3 key features:
 
 ---
 
-## 🚀 Installation & Usage / 安装与使用
+## Installation & Usage / 安装与使用
 
 1. **Hardware:** Solder the components on a perfboard or use a breadboard.
 * *硬件：在万用板上焊接或使用面包板搭建电路。*
@@ -140,7 +146,7 @@ The system does not use raw audio. It extracts 3 key features:
 
 ---
 
-## ⚙️ Tuning / 参数调优
+## Tuning / 参数调优
 
 Modify `main.cpp` to fit your specific sensor sensitivity:
 修改 `main.cpp` 以适应你的传感器灵敏度：
