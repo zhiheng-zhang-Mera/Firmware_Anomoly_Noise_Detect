@@ -7,27 +7,6 @@
 
 ---
 
-## Demo Video / 演示视频
-
-<div align="center">
-  <video width="100%" controls>
-    <source src="Demo-Error-Old.mp4" type="video/mp4">
-  </video>
-  <em>Test Demo on bread board</em>
-  <em>在面包板上的运行演示</em>
-  <video width="100%" controls>
-    <source src="Welded-Version-Demo-Error.mp4" type="video/mp4">
-  </video>
-  <br>
-  <em>Test Demo on welded board</em>
-  <em>焊接后在万用板上的运行演示</em>
-  <em>Real-time detection: Strobe Blue Light = Anomaly Detected.</em>
-  <br>
-  <em>实时检测演示：闪烁蓝灯报警=检测到异常。</em>
-</div>
-
----
-
 ## Key Features / 核心功能
 
 1.  **TinyML on Edge / 边缘机器学习**:
@@ -53,11 +32,10 @@
 | Component (元件) | Description (描述) | Quantity (数量) |
 | :--- | :--- | :--- |
 | **MCU** | ESP32 DevKit V1 (Doit) | 1 |
-| **Microphone** | INMP441 (I2S Omnidirectional) | 1 (or Array) |
-| **Indication** | Onboard Blue LED (GPIO 2) | 1 |
+| **Microphone** | INMP441 (I2S Omnidirectional) | 4 (or Array) |
 | **Wiring** | Perfboard & Wires | - |
 
-### 🔌 Pinout / 接线图
+### 🔌 Wiring/Connection / 线路连接
 
 > **Note:** Do NOT connect WS/SCK to EN or VP pins!
 > **注意:** 严禁将 WS/SCK 连接到 EN 或 VP 引脚！
@@ -108,13 +86,28 @@ The system does not use raw audio. It extracts 3 key features:
 
 ## Demo Video / 演示视频
 
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="center" width="50%">Breadboard Demo<br>(面包板演示)</th>
+      <th align="center" width="50%">Welded Board Demo<br>(焊接万用板演示)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <video src="https://github.com/user-attachments/assets/c8d46fb3-0c87-4b19-b99e-605f665082ea" width="100%" controls preload></video>
+      </td>
+      <td align="center">
+        <video src="https://github.com/user-attachments/assets/b00ad24c-eaeb-46a2-bde8-5c2daaebebec" width="100%" controls preload></video>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <div align="center">
-  <video src="./Demo-Error-Old.mp4" width="100%" controls></video>
-  <video src="./Welded-Version-Demo-Error.mp4" width="100%" controls></video>
-  <br>
-  <em>Real-time detection: Strobe Blue Light = Anomaly Detected.</em>
-  <br>
-  <em>实时检测演示：闪烁蓝灯报警=检测到异常。</em>
+  <p><em>Real-time detection: Strobe Blue Light = Anomaly Detected.</em></p>
+  <p><em>实时检测演示：闪烁蓝灯报警 = 检测到异常。</em></p>
 </div>
 
 ---
@@ -163,7 +156,5 @@ feat_low = feat_low * 3.0;
 // 3. Debounce Settings (防抖设置)
 #define WINDOW_SIZE 6       // History length (历史长度)
 #define ALARM_THRESHOLD 2   // Alarm trigger count (报警触发数)
-
-```
 
 ```
